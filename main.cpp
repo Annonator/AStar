@@ -33,10 +33,15 @@ int main(int argc, char** argv) {
     
     cout << endl << "++++" << endl << ((NodeWrapper*)sammlung[0])->toString() << endl << "+++++" << endl;
     
-    for (int i = 0; i < 20; ++i) {
+    for (int i = 0; i < 5; ++i) {
         sammlung.push_back(new Node());
+        //cout << i << ": " << sammlung[i]->toString() << endl;
+    }
+    
+    for (int i = sammlung.size()-2; i >= 0; --i) {
         cout << i << ": " << sammlung[i]->toString() << endl;
     }
+    
     test = sammlung[1];
     sammlung[0]->connectWith(test);
     sammlung[2]->connectWith(test);

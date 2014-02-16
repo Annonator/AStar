@@ -9,66 +9,68 @@
 
 #include <vector>
 #include <string>
- #include <math.h>
+#include <math.h>
 
- using namespace std;
+using namespace std;
 
- class Node {
- public:
- 	Node();
- 	Node(float x, float y);
- 	Node(const Node& orig);
- 	virtual ~Node();
+class Node {
+public:
+    Node();
+    Node(float x, float y);
+    Node(const Node& orig);
+    virtual ~Node();
 
-        void init(float x, float y);
-        
- 	static void setDestinationNode(Node* destination);
- 	//Stellt verbindung zu anderem Knoten her
- 	void connectWith(Node* otherNode);
+    void init(float x, float y);
+    
+    Node* getRoot();
+
+    static void setDestinationNode(Node* destination);
+    //Stellt verbindung zu anderem Knoten her
+    void connectWith(Node* otherNode);
     //Setzt Status von Node zurück für neue Berechnung
- 	void reset(bool isStartNode);
+    void reset(bool isStartNode);
     //Nimmt Node in processing list auf und bestimmt naechsten node
- 	void setActiveNode(vector<Node*>&  processingList);
+    void setActiveNode(vector<Node*>& processingList);
     //Baut den Besten Pfad rückwärts auf
- 	void processBackwards();
+    void processBackwards();
     //Prüft ob aktueller Node die Loesung ist
- 	bool isSolution();
+    bool isSolution();
     //Liefert die Kosten diese Knotens
- 	float getWeight();
+    float getWeight();
     //Berechnet Abstand zu anderen Konten
- 	float computeDistanceTo(Node* partnerNode);
-        
-        string toString();
-        
- private:
+    float computeDistanceTo(Node* partnerNode);
 
- 	float m_coordinates[2];
+    string toString();
 
- 	struct Link{
- 		Node* linkedNode;
+protected:
 
- 		float distance;
- 	};
+    float m_coordinates[2];
 
- 	vector<Link> m_connectedNodes;
+    struct Link {
+        Node* linkedNode;
 
- 	enum State{
- 		INITIAL,
- 		VISITED,
- 		CLOSED,
- 		SOLUTION
- 	};
+        float distance;
+    };
 
- 	State m_internalState;
+    vector<Link> m_connectedNodes;
 
- 	float m_upToDistance;
- 	float m_value;
+    enum State {
+        INITIAL,
+        VISITED,
+        CLOSED,
+        SOLUTION
+    };
 
- 	Node* m_rootNode;
+    State m_internalState;
 
- 	static Node* m_destinationNode;
+    float m_upToDistance;
+    float m_value;
 
- };
+    Node* m_rootNode;
+
+    static Node* m_destinationNode;
+
+};
 
 #endif	/* NODE_H */
 

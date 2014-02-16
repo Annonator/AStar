@@ -7,7 +7,6 @@
 #include "Node.h"
 #include <random>
 #include <sstream>
-#include <iostream>
 
 Node* Node::m_destinationNode = NULL;
 
@@ -27,6 +26,10 @@ void Node::init(float x, float y) {
     m_coordinates[1] = y;
     //Reset Node im Status INITIAL
     reset(false);
+}
+
+Node* Node::getRoot(){
+    return m_rootNode;
 }
 
 Node::Node(const Node& orig) {
@@ -96,7 +99,6 @@ void Node::processBackwards() {
     Node* current = this;
 
     while (current) {
-        cout << current->toString() << endl;
         current->m_internalState = Node::SOLUTION;
         current = current->m_rootNode;
     }

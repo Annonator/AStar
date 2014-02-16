@@ -23,7 +23,7 @@ public:
     void setDestinationNode(Node* destinationNode);
     void solve();
     void solve(Node* start, Node* end);
-private:
+protected:
 	vector<Node*> m_navPoints;
 	Node* m_startNode;
 	Node* m_endNode;

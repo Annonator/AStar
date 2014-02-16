@@ -75,4 +75,3 @@ void AStar::solve(Node* start, Node* end){
 	Node::setDestinationNode(end);
 	solve();
 }
-

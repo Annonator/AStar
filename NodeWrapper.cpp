@@ -28,6 +28,10 @@ NodeWrapper::NodeWrapper(const NodeWrapper& orig) {
 NodeWrapper::~NodeWrapper() {
 }
 
+int NodeWrapper::getId(){
+    return m_id;
+}
+
 void NodeWrapper::setId(int id) {
     m_id = id;
 }

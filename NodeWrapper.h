@@ -19,6 +19,7 @@ public:
     NodeWrapper(const NodeWrapper& orig);
     virtual ~NodeWrapper();
     
+    int getId();
     void setId(int set);
     string toString();
 private:
