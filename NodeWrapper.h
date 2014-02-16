@@ -15,6 +15,7 @@ using namespace std;
 class NodeWrapper : Node{
 public:
     NodeWrapper();
+    NodeWrapper(int id, float x, float y);
     NodeWrapper(const NodeWrapper& orig);
     virtual ~NodeWrapper();
     

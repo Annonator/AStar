@@ -10,6 +10,8 @@
 #include "Node.h"
 #include "AStar.h"
 
+#include "NodeWrapper.h"
+
 void testf(Node* tt) {
     cout << tt->toString();
 }
@@ -22,9 +24,15 @@ int main(int argc, char** argv) {
     cout << "Hello World\n";
 
 
-    Node::Node* test;
+    NodeWrapper* tests = new NodeWrapper(10, 2, 3);
+    Node* test;
 
     vector<Node*> sammlung;
+    
+    sammlung.push_back((Node*)tests);
+    
+    cout << endl << "++++" << endl << ((NodeWrapper*)sammlung[0])->toString() << endl << "+++++" << endl;
+    
     for (int i = 0; i < 20; ++i) {
         sammlung.push_back(new Node());
         cout << i << ": " << sammlung[i]->toString() << endl;

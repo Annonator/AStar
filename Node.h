@@ -20,6 +20,8 @@
  	Node(const Node& orig);
  	virtual ~Node();
 
+        void init(float x, float y);
+        
  	static void setDestinationNode(Node* destination);
  	//Stellt verbindung zu anderem Knoten her
  	void connectWith(Node* otherNode);
