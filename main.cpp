@@ -11,6 +11,7 @@
 #include "AStar.h"
 
 #include "NodeWrapper.h"
+#include "AStarWrapper.h"
 
 void testf(Node* tt) {
     cout << tt->toString();
@@ -34,12 +35,8 @@ int main(int argc, char** argv) {
     cout << endl << "++++" << endl << ((NodeWrapper*)sammlung[0])->toString() << endl << "+++++" << endl;
     
     for (int i = 0; i < 5; ++i) {
-        sammlung.push_back(new Node());
+        sammlung.push_back((Node*)new NodeWrapper(i, 2*i, 3*i));
         //cout << i << ": " << sammlung[i]->toString() << endl;
-    }
-    
-    for (int i = sammlung.size()-2; i >= 0; --i) {
-        cout << i << ": " << sammlung[i]->toString() << endl;
     }
     
     test = sammlung[1];
@@ -50,10 +47,13 @@ int main(int argc, char** argv) {
     sammlung[3]->connectWith(test);
     sammlung[4]->connectWith(test);
     
-    AStar star;
+    AStarWrapper star;
+    //AStar star;
     cout << "--------\n";
     star.setNodes(sammlung);
     star.solve(sammlung[0], sammlung[5]);
+    
+    cout << star.toString();
 
     char t;
     cout << "ENDE\n";

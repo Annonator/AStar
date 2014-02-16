@@ -11,7 +11,7 @@
 #include "AStar.h"
 #include <string>
 
-class AStarWrapper : AStar{
+class AStarWrapper : public AStar{
 public:
     AStarWrapper();
     AStarWrapper(const AStarWrapper& orig);

@@ -12,7 +12,7 @@
 
 using namespace std;
 
-class NodeWrapper : Node{
+class NodeWrapper : public Node{
 public:
     NodeWrapper();
     NodeWrapper(int id, float x, float y);

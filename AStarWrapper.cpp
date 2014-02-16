@@ -37,7 +37,7 @@ string AStarWrapper::toString(){
     
     os << erg[size-1];
             
-    for(int i = size-2; i > 0; --i){
+    for(int i = size-2; i >= 0; --i){
         os << ", " << erg[i];
     }
     
