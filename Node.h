@@ -27,6 +27,7 @@ public:
     static void setDestinationNode(Node* destination);
     //Stellt verbindung zu anderem Knoten her
     void connectWith(Node* otherNode);
+    void resetConnections();
     //Setzt Status von Node zurück für neue Berechnung
     void reset(bool isStartNode);
     //Nimmt Node in processing list auf und bestimmt naechsten node

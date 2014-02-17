@@ -66,6 +66,10 @@ void Node::reset(bool isStartNode) {
     }
 }
 
+void Node::resetConnections(){
+    m_connectedNodes->clear();
+}
+
 void Node::setActiveNode(vector<Node*>& processingList) {
     m_internalState = Node::CLOSED;
 
